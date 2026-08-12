@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forge — Learn by Building</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/dracula.min.css">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">⬡</span>
+        <span class="brand-name">FORGE</span>
+      </div>
+
+      <div class="overall-progress">
+        <div class="overall-progress-label">
+          <span>Progress</span>
+          <span id="overall-progress-count">0 / 0</span>
+        </div>
+        <div class="progress-track"><div class="progress-fill" id="overall-progress-fill"></div></div>
+      </div>
+
+      <nav class="curriculum-nav" id="curriculum-nav" aria-live="polite">
+        <div class="empty-state">Loading curriculum…</div>
+      </nav>
+    </aside>
+
+    <main class="main" id="main">
+      <div class="empty-state-large" id="welcome">
+        <h1>Pick an exercise to start building.</h1>
+        <p>Real code, real checks, an AI mentor if you get stuck — no answers handed to you.</p>
+      </div>
+
+      <div class="workbench hidden" id="workbench">
+        <header class="workbench-header">
+          <div>
+            <span class="workbench-track" id="workbench-track"></span>
+            <h1 id="workbench-title"></h1>
+          </div>
+          <span class="status-badge" id="status-badge">Not started</span>
+        </header>
+
+        <div class="workbench-body">
+          <section class="instructions-pane">
+            <div class="column-label">Instructions</div>
+            <div class="instructions-content" id="instructions-content"></div>
+
+            <div class="mentor-box">
+              <button class="btn ghost small full" id="btn-toggle-mentor" type="button">Ask the mentor for a hint</button>
+              <div class="mentor-panel hidden" id="mentor-panel">
+                <textarea id="mentor-question" rows="2" placeholder="What are you stuck on?"></textarea>
+                <button class="btn primary small" id="btn-ask-mentor" type="button">Ask</button>
+                <div class="mentor-response" id="mentor-response"></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="editor-pane">
+            <div class="column-label">Your code</div>
+            <div class="editor-wrap">
+              <textarea id="code-editor"></textarea>
+            </div>
+            <div class="editor-actions">
+              <button class="btn primary" id="btn-check" type="button">Check my work</button>
+              <span class="attempts-note" id="attempts-note"></span>
+            </div>
+            <div class="result-panel hidden" id="result-panel"></div>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div class="toast-container" id="toast-container"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/python/python.min.js"></script>
+  <script src="markdown.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
